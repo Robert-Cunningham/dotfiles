@@ -1,0 +1,12 @@
+{
+    "files.autoSave": "onFocusChange",
+    "python.pythonPath": "/home/robert/anaconda3/envs/python36/bin/python",
+    "python.venvPath": "/home/robert/anaconda3/envs",
+    "window.zoomLevel": 0,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+}
