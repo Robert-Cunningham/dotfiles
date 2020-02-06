@@ -1,0 +1,5 @@
+i3-gaps
+compton
+yadm
+
+yadm clone -f git@github.com:Robert-Cunningham/dotfiles.git #Don't git stash pop unless you want your local stuff back
