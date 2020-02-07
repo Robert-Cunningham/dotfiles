@@ -1,5 +1,9 @@
-i3-gaps
+i3-gaps 
 compton
 yadm
 
 yadm clone -f git@github.com:Robert-Cunningham/dotfiles.git #Don't git stash pop unless you want your local stuff back
+sudo add-apt-repository ppa:kgilmer/speed-ricer
+sudo apt install i3-gaps-wm compton feh
+
+https://askubuntu.com/a/1060843
