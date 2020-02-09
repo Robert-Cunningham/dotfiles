@@ -9,4 +9,12 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Solarized Light",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ]
+
 }
