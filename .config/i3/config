@@ -15,9 +15,9 @@ for_window [class=".*"] border pixel 0
 gaps outer 0
 gaps inner 20
 
-exec --no-startup-id redshift
+exec --no-startup-id redshift -t 5500k:2000k
 exec --no-startup-id feh --bg-tile ~/.config/background.jpg
-exec --no-startup-id compton -b
+# exec --no-startup-id compton -b
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
 # set $monitor_two DVI-D-0
@@ -30,7 +30,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -43,7 +43,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /home/robert/.local/kitty.app/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,7 +54,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -98,7 +99,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
