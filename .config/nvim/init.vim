@@ -11,7 +11,7 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lambdalisue/vim-manpager'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
@@ -111,10 +111,10 @@ let g:NERDTreeDirArrowCollapsible = ' '
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdcommenter
-let g:NERDSpaceDelims = 1
-nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
-inoremap <C-_> <esc>:call NERDComment('Toggle', 'Toggle')<CR>
-vnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>gv
+" let g:NERDSpaceDelims = 1
+" nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
+" inoremap <C-_> <esc>:call NERDComment('Toggle', 'Toggle')<CR>
+" vnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>gv
 
 " ALE
 let g:ale_sign_error = ''
@@ -259,4 +259,6 @@ command! -bang -nargs=* PRg
 :set autowriteall
 :set autoread
 
+" disable autocomments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 

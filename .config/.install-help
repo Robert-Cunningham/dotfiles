@@ -7,4 +7,7 @@ sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt install i3-gaps-wm compton feh
 sudo apt install redshift
 
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+git clone --depth 1 git@github.com:dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
+
 https://askubuntu.com/a/1060843

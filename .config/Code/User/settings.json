@@ -1,6 +1,6 @@
 {
     "files.autoSave": "onFocusChange",
-    "python.pythonPath": "/home/robert/anaconda3/envs/python36/bin/python",
+    "python.pythonPath": "/home/robert/anaconda3/bin/python",
     "python.venvPath": "/home/robert/anaconda3/envs",
     "window.zoomLevel": 0,
     "latex-workshop.view.pdf.viewer": "tab",
@@ -9,12 +9,33 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
-    "workbench.colorTheme": "Solarized Light",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
+    ],
+    "workbench.colorTheme": "Monokai",
+    "editor.formatOnSave": true,
+    "gitlens.blame.avatars": false,
+    "gitlens.blame.heatmap.enabled": false,
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "C_Cpp.formatting": "Disabled",
+    "eslint.packageManager": "yarn",
+    "eslint.alwaysShowStatus": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "rust-analyzer.cargo.allFeatures": true,
+    "solidity.linter": "solhint",
+    "[typescript]": {},
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "prettier.disableLanguages": [
+        "markdown",
+        "md"
     ]
-
 }

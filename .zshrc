@@ -9,6 +9,7 @@ export ZSH="/home/robert/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+#ZSH_THEME="random"
 
 DEFAULT_USER=robert
 
@@ -29,7 +30,7 @@ DEFAULT_USER=robert
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -99,10 +100,53 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="nvim"
+alias vi="nvim"
 xset r rate 220 40
 
-export PATH="/home/robert/anaconda3/bin:$PATH"
+# export PATH="/home/robert/anaconda3/bin:$PATH"  # commented out by conda initialize
 export PATH="/home/robert/Downloads/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/home/robert/.local/bin:$PATH"
 export PATH="/home/robert/Downloads/julia-1.3.1/bin:$PATH"
+export PATH="/home/robert/.cargo/bin:$PATH"
+export PATH="$PATH:$(yarn global bin)"
+export PATH="$PATH:/home/robert/.local/kitty.app/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/robert/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/robert/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/robert/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/robert/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# export FZF_DEFAULT_COMMAND="rg --files"
+
+export NVM_DIR="$HOME/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#alias loadnvm="$HOME/.nvm/nvm.sh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
