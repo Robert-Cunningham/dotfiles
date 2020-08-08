@@ -13,16 +13,23 @@ set $mod Mod4
 
 for_window [class=".*"] border pixel 0
 gaps outer 0
-gaps inner 30
+gaps inner 20
 
+<<<<<<< HEAD
 exec --no-startup-id redshift
 exec --no-startup-id feh --bg-tile ~/Pictures/background.jpg
 exec --no-startup-id compton -b
 exec --no-startup-id xset r rate 220 40
+=======
+exec --no-startup-id redshift -t 5500k:2000k
+exec --no-startup-id feh --bg-tile ~/.config/background.jpg
+# exec --no-startup-id compton -b
+exec --no-startup-id setxkbmap -option ctrl:swapcaps
+>>>>>>> 2f6b937858ddc64756d3fef6c9c0b46e88eceec5
 
-set $monitor_two DVI-D-0
-set $monitor_one HDMI-0
-set $monitor_three DP-0
+# set $monitor_two DVI-D-0
+# set $monitor_one HDMI-0
+# set $monitor_three DP-0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -30,7 +37,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -43,7 +50,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /home/robert/.local/kitty.app/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,7 +61,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -98,7 +106,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -183,9 +191,26 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+### Backlight ###
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # Increase Brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # Decrease Brightness
+
+### Media Player ###
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+### Sound ###
+# Raise Volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+# Lower Volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle-mute # Toggle muting
 
 #assign [class="Spotify"] $ws9
 assign [class="Skype"] $ws8

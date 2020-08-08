@@ -10,4 +10,10 @@
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Monokai",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ]
 }
