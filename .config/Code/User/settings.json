@@ -9,4 +9,5 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Monokai",
 }
