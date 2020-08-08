@@ -16,8 +16,9 @@ gaps outer 0
 gaps inner 20
 
 exec --no-startup-id redshift -t 5500k:2000k
+exec --no-startup-id compton -b
+exec --no-startup-id xset r rate 220 40
 exec --no-startup-id feh --bg-tile ~/.config/background.jpg
-# exec --no-startup-id compton -b
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
 # set $monitor_two DVI-D-0

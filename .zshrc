@@ -71,7 +71,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,11 +83,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,15 +103,19 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias vi="nvim"
 xset r rate 220 40
+#bindkey -v
 
 # export PATH="/home/robert/anaconda3/bin:$PATH"  # commented out by conda initialize
-export PATH="/home/robert/Downloads/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="/home/robert/.local/bin:$PATH"
-export PATH="/home/robert/Downloads/julia-1.3.1/bin:$PATH"
 export PATH="/home/robert/.cargo/bin:$PATH"
 export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:/home/robert/.local/kitty.app/bin"
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+export PATH="/home/robert/anaconda3/bin:$PATH"
+#export PATH="/home/robert/Downloads/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/home/robert/.local/bin:$PATH"
+export PATH="/home/robert/Downloads/julia-1.4.1/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -146,7 +150,5 @@ export NVM_DIR="$HOME/.nvm"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/robert/.nvm/versions/node/v12.18.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export GEM_HOME="$HOME/.gems"
-export PATH="$HOME/.gems/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
