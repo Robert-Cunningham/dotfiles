@@ -106,7 +106,7 @@ export PATH="/home/robert/anaconda3/bin:$PATH"
 export PATH="/home/robert/Downloads/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/home/robert/.local/bin:$PATH"
-export PATH="/home/robert/Downloads/julia-1.3.1/bin:$PATH"
+export PATH="/home/robert/Downloads/julia-1.4.1/bin:$PATH"
 export PATH="/home/robert/.yarn/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
