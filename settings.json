@@ -1,0 +1,168 @@
+{
+    "files.autoSave": "onFocusChange",
+    "python.pythonPath": "/home/robert/anaconda3/bin/python",
+    "python.venvPath": "/home/robert/anaconda3/envs",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "workbench.colorTheme": "Monokai",
+    "gitlens.blame.avatars": false,
+    "gitlens.blame.heatmap.enabled": false,
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "C_Cpp.formatting": "Disabled",
+    "eslint.alwaysShowStatus": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "rust-analyzer.cargo.allFeatures": true,
+    "solidity.linter": "solhint",
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.requireConfig": true,
+    "tabnine.experimentalAutoImports": true,
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-d>": true
+    },
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "off",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "on",
+    "remote.SSH.remotePlatform": {
+        "192.168.194.54": "linux",
+        "compute": "linux",
+        "10.250.5.102": "linux",
+        "10.250.7.177": "linux",
+        "compute2": "linux",
+        "computets": "linux"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "[handlebars]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "python.defaultInterpreterPath": "/Users/robert/miniconda3/envs/utility",
+    "security.workspace.trust.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "editor.glyphMargin": false,
+    "editor.renderWhitespace": "none",
+    "editor.guides.indentation": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "julia.enableCrashReporter": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "explorer.autoReveal": false,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "yaml": false
+    },
+    "workbench.editor.tabSizing": "shrink",
+    "jupyter.interactiveWindow.codeLens.enable": false,
+    "jupyter.showOutlineButtonInNotebookToolbar": false,
+    "notebook.cellToolbarLocation": {
+        "default": "hidden",
+        "jupyter-notebook": "hidden"
+    },
+    "notebook.insertToolbarLocation": "hidden",
+    "notebook.showCellStatusBar": "hidden",
+    "search.experimental.notebookSearch": true,
+    "idf.espIdfPath": "/Users/robert/esp/esp-idf",
+    "idf.pythonBinPath": "/Users/robert/.espressif/python_env/idf5.0_py3.10_env/bin/python",
+    "idf.toolsPath": "/Users/robert/.espressif",
+    "idf.customExtraPaths": "/Users/robert/.espressif/tools/xtensa-esp-elf-gdb/11.2_20220823/xtensa-esp-elf-gdb/bin:/Users/robert/.espressif/tools/riscv32-esp-elf-gdb/11.2_20220823/riscv32-esp-elf-gdb/bin:/Users/robert/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin:/Users/robert/.espressif/tools/xtensa-esp32s2-elf/esp-2022r1-11.2.0/xtensa-esp32s2-elf/bin:/Users/robert/.espressif/tools/xtensa-esp32s3-elf/esp-2022r1-11.2.0/xtensa-esp32s3-elf/bin:/Users/robert/.espressif/tools/riscv32-esp-elf/esp-2022r1-11.2.0/riscv32-esp-elf/bin:/Users/robert/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/Users/robert/.espressif/tools/cmake/3.24.0/CMake.app/Contents/bin:/Users/robert/.espressif/tools/openocd-esp32/v0.11.0-esp32-20221026/openocd-esp32/bin:/Users/robert/.espressif/tools/ninja/1.10.2:/Users/robert/.espressif/tools/esp-rom-elfs/20220823",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/Users/robert/.espressif/tools/openocd-esp32/v0.11.0-esp32-20221026/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/Users/robert/.espressif/tools/esp-rom-elfs/20220823/"
+    },
+    "idf.gitPath": "git",
+    "notebook.output.scrolling": true,
+    "vim.easymotion": true,
+    "vim.normalModeKeyBindingsNonRecursive": [],
+    "vim.leader": ",",
+    "vim.camelCaseMotion.enable": true,
+    "github.copilot.advanced": {},
+    "black-formatter.args": [
+        "--line-length",
+        "200"
+    ],
+    "editor.formatOnPaste": true,
+    "notebook.formatOnSave.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "window.commandCenter": false,
+    "editor.formatOnSave": true,
+    "git.confirmSync": false,
+    "workbench.editor.empty.hint": "hidden",
+    "window.density.editorTabHeight": "compact",
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.statusBar.visible": false,
+    "vim.foldfix": true,
+    "editor.folding": false,
+    "search.searchOnTypeDebouncePeriod": 1,
+    "search.seedOnFocus": true,
+    "search.searchEditor.defaultNumberOfContextLines": 2,
+    "prisma.showPrismaDataPlatformNotification": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "typescriptreact.preferGoToSourceDefinition": true,
+    "scm.showHistoryGraph": false,
+    "cursor.cpp.disabledLanguages": [
+        "markdown",
+        "scminput",
+        "yaml"
+    ],
+    "extensions.ignoreRecommendations": true,
+    "ruff.interpreter": [
+        "/home/robert/miniconda3/bin/python"
+    ],
+    "typescript.preferGoToSourceDefinition": true,
+    "javascript.preferGoToSourceDefinition": true,
+    "terminal.integrated.fontSize": 10,
+    "biome.suggestInstallingGlobally": false,
+    "jupyter.askForKernelRestart": false,
+    "typescript.preferences.organizeImports": {
+        
+    },
+}
