@@ -1,0 +1,515 @@
+{
+    "global": { "show_in_menu_bar": false },
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "hyper-shift-s → unstack window",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --toggle float && /opt/homebrew/bin/yabai -m window --toggle float" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-s → insert window into stack",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --insert stack" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper+shift+] / hyper+shift+[ → move window forward/backward in stack",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --stack next" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --stack prev" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-[ / hyper-] → cycle yabai stack with wrap-around",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus stack.prev || /opt/homebrew/bin/yabai -m window --focus stack.last || /opt/homebrew/bin/yabai -m window --focus prev || /opt/homebrew/bin/yabai -m window --focus last" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus stack.next || /opt/homebrew/bin/yabai -m window --focus stack.first || /opt/homebrew/bin/yabai -m window --focus next || /opt/homebrew/bin/yabai -m window --focus first" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-shift-f → toggle floating (i3: floating toggle)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --toggle float" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-f → toggle yabai fullscreen (i3: fullscreen toggle)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-backspace → toggle split orientation (i3: split toggle)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --toggle split" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-g → set split horizontal (only toggles if needed)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "st=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.split_type // \"none\"'); if [ \"$st\" = \"vertical\" ]; then /opt/homebrew/bin/yabai -m window --toggle split; fi" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-v → set split vertical (only toggles if needed)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "st=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.split_type // \"none\"'); if [ \"$st\" = \"horizontal\" ]; then /opt/homebrew/bin/yabai -m window --toggle split; fi" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-shift-t → focus mode toggle (i3: focus mode_toggle between floating vs tiled)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "isfloat=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.floating'); if [ \"$isfloat\" = \"1\" ]; then id=$(/opt/homebrew/bin/yabai -m query --windows --space | /opt/homebrew/bin/jq 'map(select(.floating==0)) | .[0].id // empty'); [ -n \"$id\" ] && /opt/homebrew/bin/yabai -m window --focus \"$id\"; else id=$(/opt/homebrew/bin/yabai -m query --windows --space | /opt/homebrew/bin/jq 'map(select(.floating==1)) | .[0].id // empty'); [ -n \"$id\" ] && /opt/homebrew/bin/yabai -m window --focus \"$id\"; fi" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-t → workspace layout cycle (bsp → stack → float → bsp) (i3: layout toggle)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "cur=$(/opt/homebrew/bin/yabai -m query --spaces --space | /usr/bin/jq -r '.type'); case \"$cur\" in bsp)   /opt/homebrew/bin/yabai -m space --layout stack ;; stack) /opt/homebrew/bin/yabai -m space --layout float ;; float) /opt/homebrew/bin/yabai -m space --layout bsp ;; esac" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper+SHIFT+1..9,0 → send window to spaces 1..10 (stay on current space)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 1" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 2" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 3" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 4" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 5" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 6" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "7",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 7" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 8" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 9" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "0",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --space 10" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper+SHIFT+h/j/k/l → MOVE window left/down/up/right (yabai window --warp)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --warp west" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --warp south" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --warp north" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --warp east" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-1..9,0 → switch to spaces 1..10 (NO optional:any so shift won't match)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 1" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 2" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 3" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 4" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 5" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 6" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "7",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 7" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 8" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 9" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "0",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m space --focus 10" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "hyper-h/j/k/l → focus window left/down/up/right (NO optional:any so shift won't match)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus west" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus south" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus north" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/yabai -m window --focus east" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "⌃⌥⌘ + (o c s w t) focus apps via open_application",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "md.obsidian" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.todesktop.230313mzl4w4u92" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.spotify.client" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.google.Chrome" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.googlecode.iterm2" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "mandatory": ["command", "option", "control"] }
+                                },
+                                "to": [{ "shell_command": "/usr/local/bin/hs -c 'focusChatGPT()'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Left Command → Hyper Key (⌃⌥⇧⌘) (Caps Lock if alone)",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "left_command" },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": ["left_command", "left_option"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "caps_lock" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 801,
+                        "vendor_id": 1452
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "right_command" }]
+                },
+                {
+                    "from": { "key_code": "right_command" },
+                    "to": [{ "key_code": "caps_lock" }]
+                }
+            ],
+            "virtual_hid_keyboard": {
+                "country_code": 0,
+                "keyboard_type_v2": "ansi"
+            }
+        }
+    ]
+}
