@@ -1,0 +1,96 @@
+macOS non-default system settings
+=================================
+
+These are the macOS System Settings I've changed from the factory defaults,
+captured from the `defaults` database. Machine-specific items (text
+replacements, Dock app list, etc.) are intentionally left out.
+
+macOS doesn't expose a true "factory default" to diff against, so this is a
+comparison against known stock values. The booleans and keyboard/Dock/Finder
+items are reliable; the tracking-speed numbers just reflect that the slider was
+moved off-center.
+
+To re-apply on a new Mac, run the `defaults write` commands below, then run:
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    killall Dock; killall Finder
+(some changes also need a logout/login).
+
+
+Keyboard & text (NSGlobalDomain)
+--------------------------------
+Key repeat instead of accent popup (vim-friendly):
+    defaults write -g ApplePressAndHoldEnabled -bool false
+Fastest key repeat (below what the slider allows):
+    defaults write -g KeyRepeat -int 1
+    defaults write -g InitialKeyRepeat -int 10
+No auto-capitalize:
+    defaults write -g NSAutomaticCapitalizationEnabled -bool false
+No double-space -> period:
+    defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+Auto-hide the menu bar:
+    defaults write -g _HIHideMenuBar -bool true
+UI sound effects off:
+    defaults write -g com.apple.sound.uiaudio.enabled -bool false
+Force Click off:
+    defaults write -g com.apple.trackpad.forceClick -bool false
+Two-finger swipe page-navigation off:
+    defaults write -g AppleEnableSwipeNavigateWithScrolls -bool false
+Custom mouse / trackpad tracking speed:
+    defaults write -g com.apple.mouse.scaling -float 0.875
+    defaults write -g com.apple.trackpad.scaling -float 0.6875
+
+Custom menu keyboard shortcuts (NSUserKeyEquivalents):
+    Minimize        -> Cmd-Opt-Ctrl-M
+    Search Tabs     -> Cmd-Shift-P
+    Serach Tabs...  -> Cmd-P   (note: literal "Serach" typo; matches only a
+                                menu item named exactly that)
+
+
+Dock (com.apple.dock)
+---------------------
+    defaults write com.apple.dock autohide -bool true            # auto-hide on
+    defaults write com.apple.dock launchanim -bool false         # no launch bounce
+    defaults write com.apple.dock no-bouncing -bool true         # no notification bounce
+    defaults write com.apple.dock show-recents -bool false       # no recent apps
+    defaults write com.apple.dock mru-spaces -bool false         # don't auto-rearrange Spaces
+    defaults write com.apple.dock tilesize -int 45
+    defaults write com.apple.dock wvous-br-corner -int 14        # bottom-right hot corner = Quick Note
+
+
+Finder (com.apple.finder)
+-------------------------
+    defaults write com.apple.finder CreateDesktop -bool false        # hide all desktop icons
+    defaults write com.apple.finder FXPreferredViewStyle -string Nlsv # default to List view
+    defaults write com.apple.finder NewWindowTarget -string PfDe      # new windows open to Desktop
+
+
+Trackpad
+--------
+Tap to click (default off):
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+
+Window tiling / Stage Manager (com.apple.WindowManager)
+-------------------------------------------------------
+Turn off macOS Sequoia drag-to-edge tiling:
+    defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool false
+    defaults write com.apple.WindowManager EnableTopTilingByEdgeDrag -bool false
+    defaults write com.apple.WindowManager EnableTilingOptionAccelerator -bool false
+    defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
+Clicking wallpaper does not shove windows aside:
+    defaults write com.apple.WindowManager HideDesktop -bool true
+
+
+Menu bar clock (com.apple.menuextra.clock)
+------------------------------------------
+    defaults write com.apple.menuextra.clock ShowDate -int 2      # always show date
+    defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
+
+
+Spotlight keyboard shortcut (com.apple.symbolichotkeys)
+-------------------------------------------------------
+Cmd-Space Spotlight (id 64) and Cmd-Opt-Space Finder-search (id 65) are both
+DISABLED, freeing Cmd-Space for Raycast:
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "<dict><key>enabled</key><false/></dict>"
