@@ -462,7 +462,7 @@
                         ]
                     },
                     {
-                        "description": "Left Command → Hyper Key (⌃⌥⇧⌘) (Caps Lock if alone)",
+                        "description": "Left Command → Hyper Key (⌃⌥⌘) (Caps Lock if alone)",
                         "manipulators": [
                             {
                                 "from": { "key_code": "left_command" },
